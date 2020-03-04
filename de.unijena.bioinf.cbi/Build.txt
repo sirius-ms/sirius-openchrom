@@ -1,0 +1,9 @@
+=== Develop ===
+
+A) Install Eclipse for RCP/RAP Developers via the Eclipse installer [1]
+B) Install RCPTT (Menu -> Help -> Eclipse Marketplace)
+C) Clone/Import Sirius repository -> branch "develop" [2]
+
+=== Build ===
+
+mvn -f de.unijena.bioinf.cbi/pom.xml clean install

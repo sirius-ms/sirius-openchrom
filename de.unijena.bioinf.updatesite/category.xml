@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="de.unijena.bioinf.feature_1.0.0.qualifier.jar" id="de.unijena.bioinf.feature" version="1.0.0.qualifier">
+      <category name="de.unijena.bioinf"/>
+   </feature>
+   <category-def name="de.unijena.bioinf" label="Sirius"/>
+</site>

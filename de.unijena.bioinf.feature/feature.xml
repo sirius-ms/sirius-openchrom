@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="de.unijena.bioinf.feature"
+      label="Sirius Feature"
+      version="1.0.0.qualifier"
+      provider-name="Bioinformatics University Jena">
+
+   <description url="https://bio.informatik.uni-jena.de">
+      This is the Sirius/OpenChrom inetegration.
+   </description>
+
+   <copyright url="https://bio.informatik.uni-jena.de">
+      Copyright (c) 2020 Lablicate GmbH.
+This program and the accompanying materials are made
+available under the terms of the Eclipse Public License 2.0
+which is available at https://www.eclipse.org/legal/epl-2.0/
+SPDX-License-Identifier: EPL-2.0
+   </copyright>
+
+   <license url="https://www.eclipse.org/legal/epl-2.0/">
+      Copyright (c) 2020 Lablicate GmbH.
+This program and the accompanying materials are made
+available under the terms of the Eclipse Public License 2.0
+which is available at https://www.eclipse.org/legal/epl-2.0/
+SPDX-License-Identifier: EPL-2.0
+   </license>
+
+   <plugin
+         id="de.unijena.bioinf"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.unijena.bioinf.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

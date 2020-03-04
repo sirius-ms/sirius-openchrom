@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.unijena.bioinf</groupId>
+    <artifactId>de.unijena.bioinf.build</artifactId>
+    <version>1.0.0</version>
+    <relativePath>../de.unijena.bioinf.cbi/pom.xml</relativePath>
+  </parent>
+
+  <artifactId>de.unijena.bioinf.feature</artifactId>
+  <packaging>eclipse-feature</packaging>
+  <version>1.0.0-SNAPSHOT</version>
+  
+</project>

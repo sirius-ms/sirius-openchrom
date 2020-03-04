@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2020 Lablicate GmbH.
+
+  This program and the accompanying materials are made
+  available under the terms of the Eclipse Public License 2.0
+  which is available at https://www.eclipse.org/legal/epl-2.0/
+  
+  SPDX-License-Identifier: EPL-2.0
+ 
+  Contributors:
+  Dr. Philip Wenig - created the pom to build the plug-ins
+-->
+<project
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.eclipse.swtchart</groupId>
+  <artifactId>de.unijena.bioinf.build</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <!--
+	DESCRIPTION
+  --> 
+  <name>Sirius</name>
+  <description>
+	This is the Sirius/OpenChrom integration.
+  </description>
+  <!--
+	LICENSES
+  -->
+  <licenses>
+    <license>
+      <name>EPL v2.0</name>
+      <url>https://www.eclipse.org/legal/epl-2.0/</url>
+    </license> 
+  </licenses>
+  <!--
+	DEVELOPERS
+  -->
+  <developers>
+    <developer>
+      <id>eselmeister</id>
+      <name>Philip Wenig</name>
+      <email>philip.wenig [at] openchrom.net</email>
+      <timezone>+1</timezone>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+  </developers>
+  <!--
+	MODULES
+  -->
+  <modules>
+    <module>../de.unijena.bioinf</module>
+    <module>../de.unijena.bioinf.feature</module>
+    <module>../de.unijena.bioinf.fragment.test</module>
+    <module>../de.unijena.bioinf.ui</module>
+    <module>../de.unijena.bioinf.updatesite</module>
+  </modules>
+  <!--
+	USE MAVEN 3.0
+  --> 
+  <prerequisites>
+    <maven>3.0</maven>
+  </prerequisites>
+  <!--
+	PROPERTIES
+  --> 
+  <properties>
+    <!-- VERSIONS -->
+    <tycho.version>1.6.0</tycho.version>
+    <tycho-extras.version>1.6.0</tycho-extras.version>
+    <pmd.version>2.7.1</pmd.version>
+    <checkstyle.version>2.9.1</checkstyle.version>
+    <!-- IDS -->
+    <tycho.groupid>org.eclipse.tycho</tycho.groupid>
+    <sonatype.groupid>org.sonatype.tycho</sonatype.groupid>
+    <maven.groupid>org.apache.maven.plugins</maven.groupid>
+    <!-- REPOSITORY URLS -->
+    <tycho-repo.url>https://oss.sonatype.org/content/groups/public</tycho-repo.url>
+    <!-- ENCODING -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <!--
+	PLUGIN REPOSITORIES
+  -->
+  <pluginRepositories>
+    <pluginRepository>
+      <id>tycho</id>
+      <url>${tycho-repo.url}</url>
+      <releases><enabled>false</enabled></releases>
+      <snapshots><enabled>true</enabled></snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+  <!--
+	BUILD
+  -->
+  <build>
+    <!--
+	PLUGINS
+    -->  
+    <plugins>
+      <plugin>
+        <groupId>${tycho.groupid}</groupId>
+        <artifactId>tycho-packaging-plugin</artifactId>
+        <version>${tycho.version}</version>
+        <configuration>
+          <archive>
+            <addMavenDescriptor>false</addMavenDescriptor>
+          </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>${tycho.groupid}</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho.version}</version>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <groupId>${tycho.groupid}</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>${tycho.version}</version>
+        <configuration>
+         <target>
+           <artifact>
+             <groupId>de.unijena.bioinf</groupId>
+	     <artifactId>de.unijena.bioinf.targetplatform</artifactId>
+	     <version>1.0.0</version>
+            </artifact>
+          </target>
+          <environments>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>win32</os>
+              <ws>win32</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>macosx</os>
+              <ws>cocoa</ws>
+              <arch>x86_64</arch>
+            </environment>
+          </environments>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>${tycho.groupid}</groupId>
+        <artifactId>tycho-source-plugin</artifactId>
+        <version>${tycho.version}</version>
+        <executions>
+          <execution>
+            <id>plugin-source</id>
+            <goals>
+              <goal>plugin-source</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-compiler-plugin</artifactId>
+        <version>${tycho.version}</version>
+        <configuration>
+          <encoding>${project.build.sourceEncoding}</encoding>
+          <extraClasspathElements>
+            <extraClasspathElement>
+              <groupId>com.oracle</groupId>
+              <artifactId>javafx</artifactId>
+              <version>8.0.0-SNAPSHOT</version>
+              <systemPath>${java.home}/lib/jfxswt.jar</systemPath>
+              <scope>system</scope>
+            </extraClasspathElement>
+          </extraClasspathElements>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>${tycho.groupid}</groupId>
+        <artifactId>tycho-surefire-plugin</artifactId>
+        <version>${tycho.version}</version>
+        <configuration>
+          <useUIHarness>true</useUIHarness>
+        </configuration> 
+      </plugin>
+      <plugin>
+        <groupId>${maven.groupid}</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>${pmd.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>${maven.groupid}</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${checkstyle.version}</version>
+        <configuration>
+          <enableRulesSummary>false</enableRulesSummary>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

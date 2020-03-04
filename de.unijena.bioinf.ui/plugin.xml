@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="Sirius"
+            category="org.eclipse.chemclipse.xxd.process.ui.preferences.processPreferencePage"
+            class="de.unijena.bioinf.ui.preferences.PreferencePage"
+            id="de.unijena.bioinf.ui.preferences.preferencePage">
+      </page>
+   </extension>
+   <extension
+         id="de.unijena.bioinf.ui.fragment"
+         point="org.eclipse.e4.workbench.model">
+      <fragment
+            uri="fragment.e4xmi">
+      </fragment>
+   </extension>
+
+</plugin>
