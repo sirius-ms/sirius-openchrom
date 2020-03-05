@@ -74,6 +74,9 @@ public class ChromatogramIdentifier extends AbstractChromatogramIdentifier {
 				}
 			}
 		}
+		/*
+		 * Annotate the chromatogram as a whole.
+		 */
 		chromatogram.getTargets().add(TargetSupport.createTarget());
 	}
 }

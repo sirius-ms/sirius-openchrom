@@ -101,7 +101,12 @@ public class PreferenceSupplier implements IPreferenceSupplier {
 
 	public static ChromatogramIdentifierSettings getChromatogramIdentifierSettings() {
 
-		return new ChromatogramIdentifierSettings();
+		IEclipsePreferences preferences = PreferenceSupplier.INSTANCE().getPreferences();
+		ChromatogramIdentifierSettings settings = new ChromatogramIdentifierSettings();
+		settings.setMinMatchFactor(preferences.getFloat(P_MIN_MATCH_FACTOR, DEF_MIN_MATCH_FACTOR));
+		settings.setMinReverseMatchFactor(preferences.getFloat(P_MIN_REVERSE_MATCH_FACTOR, DEF_MIN_REVERSE_MATCH_FACTOR));
+		//
+		return settings;
 	}
 
 	private static String getFilterPath(String key, String def) {

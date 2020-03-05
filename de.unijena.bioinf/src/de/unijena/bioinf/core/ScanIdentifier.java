@@ -52,6 +52,9 @@ public class ScanIdentifier extends AbstractMassSpectrumIdentifier {
 				System.out.println(regularMassSpectrum.getMassSpectrometer()); // MS1, MS2, ...
 				System.out.println(regularMassSpectrum.getMassSpectrumType()); // 0 = centroid, 1 = profile
 			}
+			/*
+			 * Annotate the scan.
+			 */
 			massSpectrum.getTargets().add(TargetSupport.createTarget());
 		}
 	}
