@@ -1,4 +1,5 @@
 Manifest-Version: 1.0
+Automatic-Module-Name: de.unijena.bioinf.fragment.test
 Bundle-ManifestVersion: 2
 Bundle-Name: Sirius Tests
 Bundle-SymbolicName: de.unijena.bioinf.fragment.test

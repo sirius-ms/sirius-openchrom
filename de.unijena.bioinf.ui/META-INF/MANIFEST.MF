@@ -1,4 +1,5 @@
 Manifest-Version: 1.0
+Automatic-Module-Name: de.unijena.bioinf.ui
 Bundle-ManifestVersion: 2
 Bundle-Name: Sirius UI
 Bundle-SymbolicName: de.unijena.bioinf.ui;singleton:=true
